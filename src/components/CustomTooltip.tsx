@@ -9,14 +9,14 @@ import { CustomTooltipProp } from "@/lib/prop";
 
 const CustomTooltip: FC<CustomTooltipProp> = ({
   children,
-  className,
   title,
+  position = "top",
 }) => {
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent side={position}>
           <p>{title}</p>
         </TooltipContent>
       </Tooltip>
