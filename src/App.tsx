@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loader from "./components/loader/Loader";
 import Navbar from "./components/Navbar";
-const Home = React.lazy(() => import("./pages/Home"));
+const Home = React.lazy(() => import("./pages/home/Home"));
 
 function App() {
   return (
