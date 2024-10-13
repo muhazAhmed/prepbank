@@ -2,10 +2,20 @@ import { Button } from "@/components/ui/button";
 import image from "../../assets/images/landing.png";
 import { IoRocketSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
+import { useTheme } from "@/lib/ThemeContext";
+import { useState } from "react";
+import Form from "../Form";
 
 const Hero = () => {
+  const { theme } = useTheme();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const handleOpenChange = (open: boolean) => {
+    setIsModalOpen(open);
+  };
+
   return (
     <div className="w-full flex items-center justify-evenly h-auto md:h-[90vh]">
+      <Form open={isModalOpen} onOpenChange={handleOpenChange} />
       <div className="flex flex-col gap-8 w-[50%] pl-10">
         <motion.h1
           className="text-[30px] font-bold"
@@ -17,7 +27,9 @@ const Hero = () => {
           <span className="text-csdarkgreen">PrepBank</span>!
         </motion.h1>
         <motion.p
-          className="text-gray-300 text-[16px] w-[80%]"
+          className={`${
+            theme === "light" ? "text-gray-400" : "text-gray-300"
+          } text-[16px] w-[80%]`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -33,7 +45,10 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.05 }}
           whileHover={{ scale: 1.05 }}
         >
-          <Button className="w-52 py-5 font-semibold bg-csdarkgreen hover:bg-csgreen rounded-full">
+          <Button
+            className="w-52 py-5 font-semibold bg-csdarkgreen hover:bg-csgreen rounded-full"
+            onClick={() => setIsModalOpen(true)}
+          >
             Get Started <IoRocketSharp className="text-[18px] ml-2" />
           </Button>
         </motion.div>
