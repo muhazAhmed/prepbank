@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loader from "./components/loader/Loader";
 import Navbar from "./components/Navbar";
 const Home = React.lazy(() => import("./pages/home/Home"));
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
+      <Analytics />
     </div>
   );
 }
