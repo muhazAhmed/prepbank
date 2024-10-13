@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type ThemeProp = {
     className?: string;
 }
@@ -19,3 +21,20 @@ export type MenuItem = {
     icon: string;
     url: string;
 };
+
+export type ThemeTernaryProp = {
+    forLight: string
+    forDark: string
+}
+
+export type FormProps = {
+    open: boolean;
+    onOpenChange: (open: boolean) => void;
+}
+
+export type CustomModalProps = {
+    open: boolean;
+    onOpenChange: (open: boolean) => void;
+    children: ReactNode;
+    title?: string
+}
