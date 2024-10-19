@@ -4,7 +4,7 @@ import { IoRocketSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useTheme } from "@/lib/ThemeContext";
 import { useState } from "react";
-import Form from "../Form";
+import Form from "../form/Form";
 
 const Hero = () => {
   const { theme } = useTheme();
