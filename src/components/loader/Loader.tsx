@@ -1,7 +1,13 @@
 const Loader = () => {
   return (
-    <div>Loader</div>
-  )
-}
+    <div className="blur-bg">
+      <div className="loader">
+        <div></div>
 
-export default Loader
+        <div></div>
+      </div>
+    </div>
+  );
+};
+
+export default Loader;
