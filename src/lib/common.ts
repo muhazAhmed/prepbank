@@ -1,6 +1,7 @@
 import { FC } from "react"
-import { ThemeTernaryProp } from "./prop"
+import { ThemeTernaryProp, ToastProps } from "./prop"
 import { useTheme } from "./ThemeContext";
+import toast from "react-hot-toast";
 
 export const ThemeTernary: FC<ThemeTernaryProp> = ({ forLight, forDark }) => {
     const { theme } = useTheme();
@@ -15,3 +16,19 @@ export const ThemeTernary: FC<ThemeTernaryProp> = ({ forLight, forDark }) => {
     //    Hello There!
     // </p>
 }
+
+export const useToast = ({ type, message, duration = 3000 }: ToastProps): void => {
+    toast[type](message, {
+        duration: duration
+    })
+}
+
+export const UserToken = () => {
+    return null
+}
+
+export const handleInputChange = (e: any, setInputs: any) => {
+    setInputs((prev: any) => ({ ...prev, [e.target.name]: e.target.value }));
+};
+
+export const cookieItems = ["userInfo", "userToken"]
