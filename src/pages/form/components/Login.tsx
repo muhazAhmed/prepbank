@@ -3,11 +3,37 @@ import { MdAlternateEmail } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { cookieItems, handleInputChange } from "@/lib/common";
+import { PostMethodAPI } from "@/lib/apiMethods";
+import { ServerVariables } from "@/lib/serverVariables";
+import Button from "@/components/Button";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [cookies, setCookies] = useCookies(cookieItems);
+  const navigate = useNavigate();
+  const [payload, setPayload] = useState<any>({
+    email: "",
+    password: "",
+  });
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleLogin = async () => {
+    const res = await PostMethodAPI({
+      variable: ServerVariables?.user?.loginUser,
+      payload,
+      loading: setLoading,
+    });
+    if (res?.data) {
+      setCookies("userInfo", res.data?.userData, { path: "/" });
+      setCookies("userToken", res.data?.token, { path: "/" });
+      cookies && navigate("/dashboard");
+    }
   };
 
   return (
@@ -28,6 +54,9 @@ const Login = () => {
             placeholder="Email Address"
             type="email"
             className="bg-transparent border-0 outline-none w-full"
+            name="email"
+            value={payload?.email || ""}
+            onChange={(e) => handleInputChange(e, setPayload)}
           />
         </motion.div>
         <motion.div
@@ -39,6 +68,9 @@ const Login = () => {
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             className="bg-transparent border-0 outline-none w-full"
+            name="password"
+            value={payload?.password || ""}
+            onChange={(e) => handleInputChange(e, setPayload)}
           />
           {showPassword === true ? (
             <FaRegEyeSlash
@@ -59,12 +91,14 @@ const Login = () => {
           Forgot password?
         </motion.button>
       </div>
-      <motion.button
+      <Button
         whileHover={{ scale: 1.03 }}
         className="bg-csdarkgreen hover:bg-csgreen p-2 w-full flex gap-1 items-center justify-center rounded-full mt-2 text-lg font-semibold text-white"
-      >
-        Login <IoMdLogIn className="text-lg font-semibold" />
-      </motion.button>
+        onClick={handleLogin}
+        label="Login"
+        Icon={<IoMdLogIn className="text-lg font-semibold" />}
+        loading={loading}
+      />
     </div>
   );
 };

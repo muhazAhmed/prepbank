@@ -1,6 +1,6 @@
 import { useState, FC } from "react";
-import Login from "@/components/form/Login";
-import Register from "@/components/form/Register";
+import Login from "@/pages/form/components/Login";
+import Register from "@/pages/form/components/Register";
 import Modal from "@/components/Modal";
 import { FormProps } from "@/lib/prop";
 import { motion, AnimatePresence } from "framer-motion";
