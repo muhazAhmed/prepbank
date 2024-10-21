@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"cross-env NODE_ENV=development vite\" \"cd .. && cd prebank-server && npm run dev\"",
+    "dev": "concurrently \"cross-env NODE_ENV=development vite\" \"cd .. && cd prepbank-server && npm run dev\"",
     "production": "cross-env NODE_ENV=production vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
