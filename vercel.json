@@ -1,0 +1,19 @@
+{
+    "rewrites": [
+        {
+            "source": "/old-route/(.*)",
+            "destination": "/new-route/$1"
+        },
+        {
+            "source": "/api/(.*)",
+            "destination": "https://external-api.com/$1"
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/legacy/(.*)",
+            "destination": "/new/$1",
+            "permanent": true
+        }
+    ]
+}
