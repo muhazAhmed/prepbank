@@ -19,11 +19,15 @@ export const ThemeToggle: FC<ThemeProp> = ({ className }) => {
     <div className="rounded-full p-1 border-2 w-[fit-content] cursor-pointer">
       {colorTheme === "light" ? (
         <CustomTooltip title="Light">
-          <IoSunnyOutline onClick={toggleTheme} className={className} />
+          <span onClick={toggleTheme}>
+            <IoSunnyOutline className={className} />
+          </span>
         </CustomTooltip>
       ) : (
         <CustomTooltip title="Dark">
-          <FaRegMoon onClick={toggleTheme} className={className} />
+          <span onClick={toggleTheme}>
+            <FaRegMoon className={className} />
+          </span>
         </CustomTooltip>
       )}
     </div>

@@ -38,11 +38,7 @@ const Navbar = () => {
           ))}
         </div>
         <div className="flex items-center gap-4">
-          <CustomTooltip title="Change theme">
-            <span>
-              <ThemeToggle className="cursor-pointer hover:text-csgreen" />
-            </span>
-          </CustomTooltip>
+          <ThemeToggle className="cursor-pointer hover:text-csgreen" />
           <CustomTooltip title="Profile" position="bottom">
             <span>
               <FaUserCircle
