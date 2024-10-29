@@ -1,4 +1,4 @@
-import { UserToken, useToast } from "./common";
+import { getCookie, useToast } from "./common";
 import { APIProps } from "./prop";
 import axios from "axios"
 const ENV = import.meta.env
@@ -18,7 +18,7 @@ export const PostMethodAPI = async ({ variable, payload, loading }: APIProps) =>
     try {
         loading(true)
         const url = `${ENV.VITE_API_URL}${variable}`;
-        const token = UserToken();
+        const token = getCookie("userToken");
         const headers = token ? { "x-api-key": token } : {};
         const response = await axios.post(url, payload, {
             headers

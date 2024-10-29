@@ -34,3 +34,51 @@ export const handleInputChange = (e: any, setInputs: any) => {
 };
 
 export const cookieItems = ["userInfo", "userToken"]
+
+// Session Storage
+export const newSessionStorage = (key: string, value: any) => {
+    sessionStorage.setItem(key, JSON.stringify(value));
+};
+
+export const deleteSessionStorage = (key: string) => {
+    sessionStorage.removeItem(key);
+};
+
+export const useSessionStorage = (key: string) => {
+    const items = sessionStorage.getItem(key);
+    return items ? JSON.parse(items) : null;
+};
+
+// Local Storage
+export const newLocalStorage = (key: string, value: any) => {
+    localStorage.setItem(key, JSON.stringify(value));
+};
+
+export const deleteLocalStorage = (key: string) => {
+    localStorage.removeItem(key);
+};
+
+export const useLocalStorage = (key: string) => {
+    const items = localStorage.getItem(key);
+    return items ? JSON.parse(items) : null;
+};
+
+export function getCookie(cname: string) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+export const goBack = () => {
+    window.history.back();
+}
