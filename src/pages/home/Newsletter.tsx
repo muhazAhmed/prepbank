@@ -8,8 +8,8 @@ const Newsletter = () => {
   const handleSubmit = () => {};
 
   return (
-    <div className="w-full flex flex-col items-center justify-center py-10 gap-5">
-      <h2 className="text-[32px] font-bold mb-4">
+    <div className="w-full flex flex-col items-center justify-center py-10 gap-5 mt-10 md:mt-0">
+      <h2 className="text-[28px] md:text-[32px] font-bold mb-4 text-center md:text-start">
         Stay Updated with PrepBank!
       </h2>
       <p className="text-gray-400 text-center">

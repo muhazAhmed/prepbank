@@ -8,11 +8,11 @@ const WhyUs = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="w-full flex flex-col items-center justify-center h-auto md:h-[90vh] gap-5">
-      <motion.h1 className="text-[40px] font-bold">
+    <div className="w-full flex flex-col items-center justify-center h-auto md:h-[90vh] gap-5 mt-10 md:mt-0">
+      <motion.h1 className="text-[25px] md:text-[40px] font-bold text-center md:text-start">
         Why Choose PrepBank?
       </motion.h1>
-      <p className="text-center text-lg max-w-3xl">
+      <p className="text-center text-lg md:max-w-3xl">
         PrepBank offers everything you need to excel in various fields, from
         coding interviews to data science, web development, and beyond. With an
         extensive question bank and interactive learning, PrepBank is the
