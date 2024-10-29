@@ -4,8 +4,8 @@ import { FaGithub, FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="w-full flex items-start justify-evenly py-20">
-      <div className="flex flex-col items-center justify-center gap-3">
+    <div className="w-full flex items-start justify-evenly py-20 flex-col-reverse gap-5 md:flex-row md:gap-0">
+      <div className="flex flex-col items-start justify-center gap-3">
         <h1>Logo</h1>
         <p className="text-[14px]">
           All Rights Reserved to <br />
