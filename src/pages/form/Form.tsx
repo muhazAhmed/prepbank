@@ -1,11 +1,11 @@
-import { useState, FC } from "react";
+import { useState } from "react";
 import Login from "@/pages/form/components/Login";
 import Register from "@/pages/form/components/Register";
 import Modal from "@/components/Modal";
-import { FormProps } from "@/lib/prop";
 import { motion, AnimatePresence } from "framer-motion";
+import { goBack } from "@/lib/common";
 
-const Form: FC<FormProps> = ({ open, onOpenChange }) => {
+const Form= () => {
   const [selectedForm, setSelectedForm] = useState<"login" | "register">(
     "login"
   );
@@ -23,7 +23,7 @@ const Form: FC<FormProps> = ({ open, onOpenChange }) => {
   };
 
   return (
-    <Modal open={open} onOpenChange={onOpenChange}>
+    <Modal onOpenChange={goBack} open>
       <motion.div className="flex flex-col w-full gap-3">
         <AnimatePresence mode="wait">
           <motion.div
