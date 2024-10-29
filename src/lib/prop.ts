@@ -27,11 +27,6 @@ export type ThemeTernaryProp = {
     forDark: string
 }
 
-export type FormProps = {
-    open: boolean;
-    onOpenChange: (open: boolean) => void;
-}
-
 export type CustomModalProps = {
     open: boolean;
     onOpenChange: (open: boolean) => void;
