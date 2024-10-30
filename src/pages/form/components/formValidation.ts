@@ -32,3 +32,18 @@ export const formValidation = (payload: any, setShowPasswordHint: any) => {
     }
     return true
 };
+
+export const loginValidation = (payload: any) => {
+    if (!payload?.email) {
+        useToast({ message: "Email is required", type: "error" });
+        return false;
+    }
+    if (!validEmail(payload?.email)) {
+        useToast({ message: "Invalid email", type: "error" });
+        return false;
+    }
+    if (!payload?.password) {
+        useToast({ message: "Password is required", type: "error" });
+        return false;
+    }
+}
