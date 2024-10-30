@@ -16,7 +16,7 @@ const Modal: FC<CustomModalProps> = ({
     <div>
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent
-          className={`sm:max-w-[425px] ${
+          className={`max-w-[425px] w-[95%] md:w-auto ${
             theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-black"
           }`}
           aria-describedby="modal-description"
