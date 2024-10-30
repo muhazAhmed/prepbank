@@ -77,7 +77,7 @@ const Register = () => {
       <div className="flex w-full flex-col gap-3">
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="flex items-center gap-2 border-2 p-2 w-96 rounded-full focus:border-csdarkgreen"
+          className="flex items-center gap-2 border-2 p-2 w-[100%] md:w-96 rounded-full focus:border-csdarkgreen"
         >
           <FaUserAlt />
           <input
@@ -92,7 +92,7 @@ const Register = () => {
 
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="flex items-center gap-2 border-2 p-2 w-96 rounded-full focus:border-csdarkgreen"
+          className="flex items-center gap-2 border-2 p-2 w-[100%] md:w-96 rounded-full focus:border-csdarkgreen"
         >
           <MdAlternateEmail />
           <input
@@ -107,7 +107,7 @@ const Register = () => {
 
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="flex items-center gap-2 border-2 p-2 w-96 rounded-full focus:border-csdarkgreen"
+          className="flex items-center gap-2 border-2 p-2 w-[100%] md:w-96 rounded-full focus:border-csdarkgreen"
         >
           <FaPhone />
           <input
@@ -122,7 +122,7 @@ const Register = () => {
 
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="flex gap-2 border-2 p-2 w-96 rounded-full relative items-center"
+          className="flex gap-2 border-2 p-2 w-[100%] md:w-96 rounded-full relative items-center"
         >
           <FaFingerprint />
           <input

@@ -9,6 +9,7 @@ import { ServerVariables } from "@/lib/serverVariables";
 import Button from "@/components/Button";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { loginValidation } from "./formValidation";
 
 const Login = () => {
   const [cookies, setCookies] = useCookies(cookieItems);
@@ -24,16 +25,20 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    const res = await PostMethodAPI({
-      variable: ServerVariables?.user?.loginUser,
-      payload,
-      loading: setLoading,
-    });
-    if (res?.data) {
-      setCookies("userInfo", res.data?.userData, { path: "/" });
-      setCookies("userToken", res.data?.token, { path: "/" });
-      cookies && navigate("/dashboard");
+    const isValid = loginValidation(payload);
+    if (isValid) {
+      const res = await PostMethodAPI({
+        variable: ServerVariables?.user?.loginUser,
+        payload,
+        loading: setLoading,
+      });
+      if (res?.data) {
+        setCookies("userInfo", res.data?.userData, { path: "/" });
+        setCookies("userToken", res.data?.token, { path: "/" });
+        cookies && navigate("/dashboard");
+      }
     }
+    return;
   };
 
   return (
@@ -47,7 +52,7 @@ const Login = () => {
       <div className="flex w-full flex-col gap-3">
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="flex items-center gap-2 border-2 p-2 w-96 rounded-full focus:border-csdarkgreen"
+          className="flex items-center gap-2 border-2 p-2 w-[100%] md:w-96 rounded-full focus:border-csdarkgreen"
         >
           <MdAlternateEmail />
           <input
@@ -61,7 +66,7 @@ const Login = () => {
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.03 }}
-          className="flex gap-2 border-2 p-2 w-96 rounded-full relative items-center"
+          className="flex gap-2 border-2 p-2 w-[100%] md:w-96 rounded-full relative items-center"
         >
           <FaFingerprint />
           <input
