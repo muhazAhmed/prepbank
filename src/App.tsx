@@ -2,10 +2,10 @@ import React, { Suspense } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loader from "./components/loader/Loader";
-import Navbar from "./components/Navbar";
 import { Analytics } from "@vercel/analytics/react";
-import { AuthGuard } from "./lib/auth";
-import BottomMenu from "./components/BottomMenu";
+import BottomMenu from "./layout/BottomMenu";
+import AuthLayout from "./layout/AuthLayout";
+import RootLayout from "./layout/RootLayout";
 const Home = React.lazy(() => import("./pages/home/Home"));
 const Form = React.lazy(() => import("./pages/form/Form"));
 const Dashboard = React.lazy(() => import("./pages/dashboard/index"));
@@ -16,13 +16,12 @@ function App() {
     <div className="app" data-theme="dark">
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
-          <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/form" element={<Form />} />
-            <Route path="/dashboard" element={<AuthGuard><Dashboard /></AuthGuard>} />
+            <Route path="/" element={<RootLayout><Home /></RootLayout>} />
+            <Route path="/form" element={<RootLayout><Form /></RootLayout>} />
+            <Route path="/dashboard" element={<AuthLayout><Dashboard /></AuthLayout>} />
 
-            <Route path="/*" element={<PageNotFound />} />
+            <Route path="/*" element={<RootLayout><PageNotFound /></RootLayout>} />
           </Routes>
           <BottomMenu />
         </Suspense>

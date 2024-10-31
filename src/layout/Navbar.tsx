@@ -1,8 +1,8 @@
 import { navMenuItem } from "@/lib/data";
 import { useState } from "react";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "../components/ThemeToggle";
 import { FaUserCircle } from "react-icons/fa";
-import CustomTooltip from "./CustomTooltip";
+import CustomTooltip from "../components/CustomTooltip";
 import { useTheme } from "@/lib/ThemeContext";
 import { useNavigate } from "react-router-dom";
 
