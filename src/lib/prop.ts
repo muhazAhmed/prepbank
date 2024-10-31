@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from "react";
+import React, { ReactElement, ReactNode } from "react";
 
 export type ThemeProp = {
     className?: string;
@@ -18,8 +18,10 @@ export type CustomTooltipProp = {
 export type MenuItem = {
     id: number;
     label: string;
-    icon: string;
+    icon: string | React.ReactNode;
     url: string;
+    type?: string
+    authRequired?: boolean
 };
 
 export type ThemeTernaryProp = {
@@ -78,3 +80,18 @@ export type RegisterFormProp = {
     password: string
     phone?: number
 }
+
+export type layoutProps = {
+    children: React.ReactNode;
+}
+
+export type MoreMenuOption = {
+    id: number;
+    type: "more";
+    options: {
+        id: number;
+        url: string;
+        icon: React.ReactNode;
+        label: string;
+    }[];
+};
