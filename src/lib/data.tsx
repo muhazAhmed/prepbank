@@ -1,8 +1,13 @@
-import { MdInfoOutline, MdOutlinePhone } from "react-icons/md";
+import { MdInfoOutline, MdOutlinePhone, MdAlternateEmail } from "react-icons/md";
 import { MenuItem, MoreMenuOption } from "./prop";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { TfiMore } from "react-icons/tfi";
 import { GoGear } from "react-icons/go";
+import { FaClockRotateLeft } from "react-icons/fa6";
+import { GrLocation } from "react-icons/gr";
+import { TbWorldWww } from "react-icons/tb";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { PiUsersBold } from "react-icons/pi";
 
 export const navMenuItem: MenuItem[] = [
     { id: 0, label: "Home", icon: "fa-solid fa-house", url: "/" },
@@ -13,13 +18,12 @@ export const navMenuItem: MenuItem[] = [
 
 export const sidebarData: MenuItem[] = [
     { id: 0, label: "Dashboard", icon: <LuLayoutDashboard />, url: "/dashboard" },
-    { id: 1, label: "something", icon: <LuLayoutDashboard />, url: "/dashboard" },
+    { id: 1, label: "My Activity", icon: <FaClockRotateLeft />, url: "/activity" },
     { id: 2, label: "something else", icon: <LuLayoutDashboard />, url: "/dashboard" },
     { id: 3, label: "another thing", icon: <LuLayoutDashboard />, url: "/dashboard" },
     { id: 4, label: "yet another thing", icon: <LuLayoutDashboard />, url: "/dashboard" },
     { id: 5, label: "last thing", icon: <LuLayoutDashboard />, url: "/dashboard" },
 ]
-
 
 type BottomMenuOption = MenuItem | MoreMenuOption;
 export const bottomMenuOptions: BottomMenuOption[] = [
@@ -40,3 +44,12 @@ export const bottomMenuOptions: BottomMenuOption[] = [
         ]
     }
 ];
+
+export const profileBasicInfoItems = (item: any) => [
+    { id: 0, label: item?.location || "-", icon: <GrLocation className="text-gray-400 text-lg" /> },
+    { id: 1, label: item?.followers || "-", icon: <PiUsersBold className="text-gray-400 text-lg" /> },
+    { id: 2, label: item?.email || "-", icon: <MdAlternateEmail className="text-gray-400 text-lg" /> },
+    { id: 3, label: item?.website || "-", icon: <TbWorldWww className="text-gray-400 text-lg" /> },
+    { id: 4, label: item?.github || "-", icon: <FaGithub className="text-gray-400 text-lg" /> },
+    { id: 5, label: item?.linkedin || "-", icon: <FaLinkedin className="text-gray-400 text-lg" /> }
+]
