@@ -46,4 +46,5 @@ export const loginValidation = (payload: any) => {
         useToast({ message: "Password is required", type: "error" });
         return false;
     }
+    return true
 }
