@@ -82,3 +82,14 @@ export function getCookie(cname: string) {
 export const goBack = () => {
     window.history.back();
 }
+
+export const textEllipse = (text: string, maxLength: number) => {
+    if (text.length > maxLength) {
+        return text.substring(0, maxLength) + "...";
+    }
+    return text;
+};
+
+export const rectWithNewTab = (url: string) => {
+    return window.open(url, "_blank");
+};
