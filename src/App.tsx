@@ -9,6 +9,7 @@ import RootLayout from "./layout/RootLayout";
 const Home = React.lazy(() => import("./pages/home/Home"));
 const Form = React.lazy(() => import("./pages/form/Form"));
 const Dashboard = React.lazy(() => import("./pages/dashboard/index"));
+const UserProfile = React.lazy(() => import("./pages/profile/index"));
 const PageNotFound = React.lazy(() => import("./pages/PageNotFound"));
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<RootLayout><Home /></RootLayout>} />
             <Route path="/form" element={<RootLayout><Form /></RootLayout>} />
             <Route path="/dashboard" element={<AuthLayout><Dashboard /></AuthLayout>} />
+            <Route path="/user/profile" element={<AuthLayout><UserProfile /></AuthLayout>} />
 
             <Route path="/*" element={<RootLayout><PageNotFound /></RootLayout>} />
           </Routes>
