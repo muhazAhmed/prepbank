@@ -46,10 +46,10 @@ export const bottomMenuOptions: BottomMenuOption[] = [
 ];
 
 export const profileBasicInfoItems = (item: any) => [
-    { id: 0, label: item?.location || "-", icon: <GrLocation className="text-gray-400 text-lg" /> },
-    { id: 1, label: item?.followers || "-", icon: <PiUsersBold className="text-gray-400 text-lg" /> },
-    { id: 2, label: item?.email || "-", icon: <MdAlternateEmail className="text-gray-400 text-lg" /> },
-    { id: 3, label: item?.website || "-", icon: <TbWorldWww className="text-gray-400 text-lg" /> },
-    { id: 4, label: item?.github || "-", icon: <FaGithub className="text-gray-400 text-lg" /> },
-    { id: 5, label: item?.linkedin || "-", icon: <FaLinkedin className="text-gray-400 text-lg" /> }
+    { id: 0, label: item?.location || "Mangalore, India", icon: <GrLocation className="text-gray-400 text-lg" />, isLink: false },
+    { id: 1, label: item?.followers || "-", icon: <PiUsersBold className="text-gray-400 text-lg" />, isLink: false },
+    { id: 2, label: item?.email || "-", icon: <MdAlternateEmail className="text-gray-400 text-lg" />, isLink: true },
+    { id: 3, label: item?.website || "https://muhaz-ahmed.netlify.app/", icon: <TbWorldWww className="text-gray-400 text-lg" />, isLink: true },
+    { id: 4, label: item?.github || "-", icon: <FaGithub className="text-gray-400 text-lg" />, isLink: true },
+    { id: 5, label: item?.linkedin || "-", icon: <FaLinkedin className="text-gray-400 text-lg" />, isLink: true }
 ]
