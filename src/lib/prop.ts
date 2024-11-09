@@ -25,8 +25,8 @@ export type MenuItem = {
 };
 
 export type ThemeTernaryProp = {
-    forLight: string
-    forDark: string
+    forLight?: string
+    forDark?: string
 }
 
 export type CustomModalProps = {
